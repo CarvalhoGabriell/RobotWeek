@@ -2,6 +2,9 @@
 Documentation       Suite dos testes de cadastro de usuários
 Library             SeleniumLibrary
 
+Test Setup          Open Session
+Test Teardown       Close Session
+
 ***Test Cases***
 Cadastro Simples
     Dado que eu acesso a página principal
@@ -11,7 +14,7 @@ Cadastro Simples
 
 ***Keywords***
 Dado que eu acesso a página principal
-    Open Browser       http://ninjachef-qaninja-io.umbler.net/      firefox
+    Go To        http://ninjachef-qaninja-io.umbler.net/ 
 
 
 Quando submeto meu email "${email}"
@@ -21,4 +24,12 @@ Quando submeto meu email "${email}"
 
 Então devo ser logado com sucesso
     Wait Until Page Contains Element        class:dashboard
+    
+
+
+## HOOKS
+Open Session
+    Open Browser    about:blank       firefox
+
+Close Session
     Close Browser
