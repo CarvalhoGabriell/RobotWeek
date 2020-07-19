@@ -2,6 +2,7 @@
 Documentation       Todas as Libraries de auxilio para o projeto de automação ficaram aqui!!!
 
 Resource            keywords.robot
+Resource            helpers.robot
 Library             SeleniumLibrary
 
 ***Keywords***
