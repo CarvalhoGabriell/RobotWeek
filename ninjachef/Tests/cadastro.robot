@@ -1,5 +1,6 @@
 ***Settings***
 Documentation       Suite dos testes de cadastro de usuários da aplicação NinjaChef
+Resource            ../resources/base.robot
 
 Test Setup          Open Session
 Test Teardown       Close Session
