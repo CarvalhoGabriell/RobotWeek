@@ -13,3 +13,6 @@ Quando submeto meu email "${email}"
 
 Então devo ser logado com sucesso
     Wait Until Page Contains Element        class:dashboard
+
+Então devo ver a mensagem "${mensagem_alerta}"
+    Wait Until Element Contains     class:alert        ${mensagem_alerta}

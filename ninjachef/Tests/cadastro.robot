@@ -11,8 +11,14 @@ Cadastro Simples
     Quando submeto meu email "gabiru@gmail.com"
     Então devo ser logado com sucesso
 
+Digitar Email incorreto
+    Dado que eu acesso a página principal
+    Quando submeto meu email "gabriel123$hot.com"
+    Então devo ver a mensagem "Oops. Informe um email válido!"
 
-
-    
+Campo Email não informado
+    Dado que eu acesso a página principal
+    Quando submeto meu email "${EMPTY}"
+    Então devo ver a mensagem "Oops. Informe um email válido!"
 
 
