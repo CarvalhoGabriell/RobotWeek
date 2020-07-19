@@ -11,7 +11,7 @@ Test Teardown       Close Session
 
 
 ***Variables***
-&{strogonoff}       nome=Strogonoff com patata palha        tipo=Carnes e molhos     preco=25.00
+&{strogonoff}=       img=strogonoff.jpg    nome=Strogonoff com patata palha    tipo=Carnes e molhos    preco=25.00
 
 
 ***Test Cases***

@@ -25,9 +25,12 @@ Dado que "${produto}" é um novo prato
 Quando faço o cadastro desse prato
     Wait Until Element Is Visible       class:btn-add      10
     Click Element       class:btn-add
+
+    Choose File         css:input[id=thumbnail]         ${EXECDIR}/resources/images/${produto['img']}
     Input Text          id:name         ${produto['nome']}
     Input Text          id:plate        ${produto['tipo']}
     Input Text          id:price        ${produto['preco']}
+    Sleep               5
     Click Button        id:novoPrato
 
 Então devo vizualizar este prato no meu dashboard
