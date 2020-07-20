@@ -7,7 +7,7 @@ Login Session
     [Arguments]                             ${email}
 
     base.Open Session
-    Go To                                   http://ninjachef-qaninja-io.umbler.net/
+    Go To                                   ${base_url} 
     
     Input Text	                            id:email        ${email}
     Click Button                            css:button[type=submit] 
