@@ -8,16 +8,16 @@ Dado que eu acesso a página principal
 
 
 Quando submeto meu email "${email}"
-    Wait Until Element Is Visible           id:email
-    Input Text                              id:email    ${email}
-    Click Button                            class:btn-primary
+    Wait Until Element Is Visible           ${CAMPO_EMAIL}
+    Input Text                              ${CAMPO_EMAIL}     ${email}
+    Click Button                            
 
 Então devo ser logado com sucesso
-    Wait Until Page Contains Element             class:dashboard
+    Wait Until Page Contains Element             ${DIV_DASH}
 
 
 Então devo ver a mensagem "${message_alert}"
-    Wait Until Element Contains             class:alert         ${message_alert}
+    Wait Until Element Contains             ${ALERT_TEXT}          ${message_alert}
 
 
 Dado que "${produto}" é um novo prato
@@ -26,17 +26,17 @@ Dado que "${produto}" é um novo prato
 
 
 Quando faço o cadastro desse prato
-    Wait Until Element Is Visible       class:btn-add   5
-    Click Button                        class:btn-add
+    Wait Until Element Is Visible       ${BTN_ADD_PRATO}   5
+    Click Button                        ${BTN_ADD_PRATO}
     
-    Choose File                         css:input[id=thumbnail]         ${EXECDIR}\\resources\\images\\${produto['img']}
+    Choose File                         ${CAMPO_FOTO}         ${EXECDIR}\\resources\\images\\${produto['img']}
 
-    Input Text                          id:name         ${produto['nome']}
-    Input Text                          id:plate        ${produto['tipo']}
-    Input Text                          id:price        ${produto['preco']}
-    Click Button                        id:novoPrato
+    Input Text                          ${CAMPO_NOME}         ${produto['nome']}
+    Input Text                          ${CAMPO_TIPO}        ${produto['tipo']}
+    Input Text                          ${CAMPO_PRECO}        ${produto['preco']}
+    Click Button                        ${BTN_CADASTRAR}
 
 
 
 Então devo vizualizar este prato no meu dashboard
-    Wait Until Element Contains         class:product-list          ${produto['nome']} 
+    Wait Until Element Contains         ${DIV_LIST}          ${produto['nome']} 
