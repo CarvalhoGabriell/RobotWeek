@@ -18,4 +18,5 @@ Open Session
     Open Browser    about:blank       firefox
 
 Close Session
+    Capture Page Screenshot
     Close Browser

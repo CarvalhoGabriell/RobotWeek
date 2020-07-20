@@ -10,10 +10,10 @@ Dado que eu acesso a página principal
 Quando submeto meu email "${email}"
     Wait Until Element Is Visible           ${CAMPO_EMAIL}
     Input Text                              ${CAMPO_EMAIL}     ${email}
-    Click Button                            
+    Click Button                            ${BTN_ENTRAR}
 
 Então devo ser logado com sucesso
-    Wait Until Page Contains Element             ${DIV_DASH}
+    Wait Until Element Is Visible             ${DIV_DASH}
 
 
 Então devo ver a mensagem "${message_alert}"
@@ -22,7 +22,6 @@ Então devo ver a mensagem "${message_alert}"
 
 Dado que "${produto}" é um novo prato
     Set Test Variable       ${produto}
-
 
 
 Quando faço o cadastro desse prato
@@ -39,4 +38,4 @@ Quando faço o cadastro desse prato
 
 
 Então devo vizualizar este prato no meu dashboard
-    Wait Until Element Contains         ${DIV_LIST}          ${produto['nome']} 
+    Wait Until Element Contains         ${DIV_LIST}         ${produto['nome']} 
