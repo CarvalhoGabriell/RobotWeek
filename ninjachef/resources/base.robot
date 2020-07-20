@@ -5,6 +5,12 @@ Resource            keywords.robot
 Resource            helpers.robot
 Library             SeleniumLibrary
 
+
+
+***Variables***
+${base_url}         http://ninjachef-qaninja-io.umbler.net/
+
+
 ***Keywords***
 
 ## HOOKS
