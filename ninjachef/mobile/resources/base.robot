@@ -1,6 +1,8 @@
 ***Settings***
 Documentation       Arquivo base, contendo os codigos base para abrir o Appium Server
 
+Resource            keywords.robot
+
 Library             AppiumLibrary
 
 
