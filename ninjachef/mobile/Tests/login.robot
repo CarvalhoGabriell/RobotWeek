@@ -1,5 +1,5 @@
 ***Settings***
-Documentation           Testes de Login da aplicação mobile do NinjaChef
+Documentation           Suite de Testes Login da aplicação mobile do NinjaChef
 
 Resource                ../resources/base.robot
 Test Setup              Open Session

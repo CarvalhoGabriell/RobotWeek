@@ -20,3 +20,13 @@ Open Session
 Close Session   
     Capture Page Screenshot
     Close Application
+
+Login Session
+    [Arguments]         ${email}        ${prato}
+
+    base.Open Session
+    Wait Until Page Contains        Buscar Prato    10
+    Input Text                      accessibility_id=emailInput     ${email}
+    Input Text                      accessibility_id=plateInput     ${prato}
+    Capture Page Screenshot
+    Click Text                      Buscar Prato
