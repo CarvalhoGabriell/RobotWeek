@@ -12,7 +12,7 @@ Quando submeto meu email "${email}"
     Wait Until Page Contains        Buscar Prato    10
     Input Text                      accessibility_id=emailInput     ${email}
     Input Text                      accessibility_id=plateInput     ${prato}
-
+    Capture Page Screenshot
     Click Text                      Buscar Prato
 
 Então devo ver a lista de pratos por tipos

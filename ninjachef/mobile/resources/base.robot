@@ -18,4 +18,5 @@ Open Session
     ...                     udid=emulator-5554  
 
 Close Session   
+    Capture Page Screenshot
     Close Application
