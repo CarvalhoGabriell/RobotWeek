@@ -7,7 +7,7 @@ Library             AppiumLibrary
 ***Keywords***
 
 # hooks
-Opne Session
+Open Session
     Open Application        http://localhost:4723/wd/hub
     ...                     automationName=UiAutomator2
     ...                     platformName=Android
