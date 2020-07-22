@@ -3,6 +3,9 @@ Documentation       Suite dos testes de pedidos recebidos sendo eu um cozinheiro
 ...                 Assim que o usuário enviar sua solicitação de preparo de um prato
 ...                 E dessa forma eu possa aceitar e enviar seu pedido.
 
+Library             Collections
+Library             RequestsLibrary
+
 Resource            ../resources/base.robot
 
 Test Setup          Open Session
@@ -22,6 +25,15 @@ Receber novos Pedidos
 ***Keywords***
 Dado que "${email_cozinheiro}" é minha conta de cozinheiro
     Set Test Variable       ${email_cozinheiro}
+
+    &{info_body}=       Create Dictionary       email=${email_cozinheiro}
+    &{headers}=         Create Dictionary       Content-Type=application/json
+
+    Create Session    ninja         http://ninjachef-api-qaninja-io.umbler.net
+    ${resp}=          Post Request    ninja        /sessions        data=${info_body}       headers=${headers}
+    Status Should Be  200            ${resp}
+
+    Log To Console                   ${resp.json()['_id']}
 
 E "${email_cliente}" é meu email do meu cliente
     Set Test Variable       ${email_cliente}
