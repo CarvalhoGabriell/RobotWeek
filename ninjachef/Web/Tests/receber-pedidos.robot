@@ -5,7 +5,7 @@ Documentation       Suite dos testes de pedidos recebidos sendo eu um cozinheiro
 
 Library             Collections
 Library             RequestsLibrary
-
+Library             OperatingSystem
 Resource            ../resources/base.robot
 
 Test Setup          Open Session
@@ -16,7 +16,6 @@ Receber novos Pedidos
     Dado que "tomper@eu.com" é minha conta de cozinheiro
     E "qagabiru@rio.com" é meu email do meu cliente
     E que "Sanduiche de pernil com pimentões e especiarias" está cadastrado no meu dashboard
-    Dado que tenho pratos cadastrados
     Quando o cliente solicita o preparo de um dos meus pratos
     Então devo receber uma notificação de pedido
     E posso aceitar ou rejeitar esse pedido
@@ -29,14 +28,27 @@ Dado que "${email_cozinheiro}" é minha conta de cozinheiro
     &{info_body}=       Create Dictionary       email=${email_cozinheiro}
     &{headers}=         Create Dictionary       Content-Type=application/json
 
-    Create Session    ninja         http://ninjachef-api-qaninja-io.umbler.net
-    ${resp}=          Post Request    ninja        /sessions        data=${info_body}       headers=${headers}
-    Status Should Be  200            ${resp}
+    Create Session      ninja           http://ninjachef-api-qaninja-io.umbler.net
+    ${resp}=            Post Request    ninja        /sessions        data=${info_body}       headers=${headers}
+    Status Should Be    200             ${resp}
 
-    Log To Console                   ${resp.json()['_id']}
+    ${token_cozinhero}              Convert To String           ${resp.json()['_id']}
+    Set Test Variable               ${token_cozinhero}
 
 E "${email_cliente}" é meu email do meu cliente
     Set Test Variable       ${email_cliente}
 
 E que "${produto}" está cadastrado no meu dashboard
     Set Test Variable       ${produto}
+
+    &{payload}=         Create Dictionary       name=${email_cliente}   plate=Tipo     price=21.00
+
+    ${files_image}      Get Binary File         ${EXECDIR}\\resources\\images\\hamburge.jpg
+
+    &{file}=            Create Dictionary       thumbnail=${files_image}
+
+    &{headers}=         Create Dictionary       user_id=${token_cozinhero}
+
+    Create Session      ninja           http://ninjachef-api-qaninja-io.umbler.net
+    ${resp}=            Post Request    ninja        /products        data=${payload}       headers=${headers}    files=${file}
+    Status Should Be    200            ${resp}
