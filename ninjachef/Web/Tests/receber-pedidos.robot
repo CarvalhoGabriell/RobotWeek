@@ -17,7 +17,7 @@ Receber novos Pedidos
     E "qagabiru@rio.com" é meu email do meu cliente
     E que "Sanduiche de pernil com pimentões e especiarias" está cadastrado no meu dashboard
     Quando o cliente solicita o preparo de um dos meus pratos
-    Então devo receber uma notificação de pedido
+    Então devo receber uma notificação do pedido
     E posso aceitar ou rejeitar esse pedido
 
 
@@ -80,5 +80,10 @@ Quando o cliente solicita o preparo de um dos meus pratos
     ${resp}=            Post Request    ninja        /products/${token_produto}/orders        data=${payload}       headers=${headers}
     Status Should Be    200             ${resp}
 
-    Sleep               6
-    # ${token_cliente}              Convert To String           ${resp.json()['_id']}
+Então devo receber uma notificação do pedido
+    ${mensagem_pedido}              Convert To String          ${email_cliente} está solicitando o preparo do seguinte prato: ${produto}.
+    Wait Until Page Contains        ${mensagem_pedido}         6
+
+E posso aceitar ou rejeitar esse pedido
+    Wait Until Page Contains        ACEITAR     5
+    Wait Until Page Contains        REJEITAR    5
