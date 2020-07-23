@@ -28,12 +28,22 @@ E então envia-lo ao destinatário.
   
   ![Postman logo](https://github.com/CarvalhoGabriell/RobotWeek/blob/master/postman.jpg)
 
+# Algumas das Libraries utilizadas no projeto
+  - Library ![Requests](https://github.com/MarketSquare/robotframework-requests#readme)
+  - Library ![Selenium](https://github.com/robotframework/SeleniumLibrary/)
+  - Library ![Appium](https://github.com/serhatbolsu/robotframework-appiumlibrary)
 # Relatórios gerados pelo Robot em cada código rodado
-   - Você pode encontrar nas pastas de "logs" ou "results" no projeto para dar uma olhada
+   - Você pode encontrar nas pastas de "logs" ou "results" no projeto para dar uma olhada. Os relatórios compõem todas as keywords implementadas, as screenshots do código, além disso a cor dos relatórios são alteradas para VERDE quando os códigos passam com sucesso e VERMELHO quando o código roda com alguma falha.
    
-   ![Relatorio de logs]()
+   - ![Relatorio de logs]()
+   - ![Relatorio de Report]()
    
-   ![Relatorio de Report]()
+# Autores
+  - QANinja (papito)
+  - Eu mesmo, Gabriel Carvalho, ![My repository](https://github.com/CarvalhoGabriell)
    
-# Fim Obrigador por conferir
+# Fim Obrigadooo por conferir!!!!
+
   ![Robo dançando](https://github.com/CarvalhoGabriell/RobotWeek/blob/master/futurama-bender-dancing.gif)
+  
+
